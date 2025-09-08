@@ -97,6 +97,7 @@ class OrderService:
                     )).scalar_one_or_none()
                     if not product:
                         product_model = Product(
+                            user_id=user.user_id,
                             name=item_data.product_name
                         )
                         self.db.add(product_model)
