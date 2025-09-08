@@ -94,8 +94,8 @@ class OrderService:
                     product = (await self.db.execute(
                         select(Product)
                         .where(Product.name.ilike(item_data.product_name))
-                    ))
-                    if product is None:
+                    )).scalar_one_or_none()
+                    if not product:
                         product_model = Product(
                             name=item_data.product_name
                         )
