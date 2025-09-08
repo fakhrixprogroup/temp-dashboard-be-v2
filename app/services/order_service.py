@@ -93,7 +93,7 @@ class OrderService:
                 for item_data in order_data.order_items:
                     product = (await self.db.execute(
                         select(Product)
-                        .where(Product.name.ilike())
+                        .where(Product.name.ilike(item_data.product_name))
                     ))
                     if product is None:
                         product_model = Product(
