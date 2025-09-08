@@ -6,6 +6,7 @@ import uuid
 
 from app.models.customer_models import Customer
 from app.models.order_models import Order, OrderItem, generate_order_id
+from app.models.product_models import Product
 from app.schemas.order_schema import OrderCreate, OrderUpdate
 from app.schemas.sys_schema import TokenData
 from sqlalchemy.orm import selectinload
@@ -90,6 +91,17 @@ class OrderService:
             # Create order items if provided
             if order_data.order_items:
                 for item_data in order_data.order_items:
+                    product = (await self.db.execute(
+                        select(Product)
+                        .where(Product.name.ilike())
+                    ))
+                    if product is None:
+                        product_model = Product(
+                            name=item_data.product_name
+                        )
+                        self.db.add(product_model)
+                        await self.db.flush()
+                        
                     db_order_item = OrderItem(
                         order_id=db_order.id,
                         product_name=item_data.product_name,
