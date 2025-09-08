@@ -90,7 +90,7 @@ async def create_customer(
         
         return BaseResponse(
             status="Success",
-            message="Berhasil membuat customer",
+            message="Customer created successfully",
             data=CustomerResponse.model_validate(result)
         )
         
@@ -122,7 +122,7 @@ async def update_customer(
         
         return BaseResponse(
             status="Success",
-            message="Berhasil update customer",
+            message="Customer updated successfully",
             data=CustomerResponse.model_validate(updated_customer)
         )
         
@@ -155,7 +155,7 @@ async def delete_customer(
         
         return BaseResponse(
             status="Success",
-            message="Berhasil delete customer",
+            message="Customer deleted successfully",
             data={"deleted": True}
         )
         

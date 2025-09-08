@@ -90,7 +90,7 @@ async def create_product(
         
         return BaseResponse(
             status="Success",
-            message="Berhasil membuat product",
+            message="Product created successfully",
             data=ProductResponse.model_validate(result)
         )
         
@@ -122,7 +122,7 @@ async def update_product(
         
         return BaseResponse(
             status="Success",
-            message="Berhasil update product",
+            message="Product updated successfully",
             data=ProductResponse.model_validate(updated_product)
         )
         
@@ -155,7 +155,7 @@ async def delete_product(
         
         return BaseResponse(
             status="Success",
-            message="Berhasil delete product",
+            message="Product deleted successfully",
             data={"deleted": True}
         )
         

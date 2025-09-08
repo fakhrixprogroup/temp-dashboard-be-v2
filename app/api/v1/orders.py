@@ -90,7 +90,7 @@ async def create_order(
         
         return BaseResponse(
             status="Success",
-            message="Berhasil membuat order",
+            message="Order created successfully",
             data=OrderWithItemsResponse.model_validate(result)
         )
         
@@ -131,7 +131,7 @@ async def update_order(
         
         return BaseResponse(
             status="Success",
-            message="Berhasil update order",
+            message="Order updated successfully",
             data=OrderWithItemsResponse.model_validate(updated_order)
         )
         
@@ -173,7 +173,7 @@ async def delete_order(
         
         return BaseResponse(
             status="Success",
-            message="Berhasil delete order",
+            message="Order deleted successfully",
             data={"deleted": True}
         )
         
