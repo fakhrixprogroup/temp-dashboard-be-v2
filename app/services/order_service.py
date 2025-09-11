@@ -202,18 +202,17 @@ class OrderService:
                 await self.db.commit()
                 await self.db.refresh(customer)
 
-            db_order.order_reference_number=order_data.order_reference_number,
-            db_order.issues_date=order_data.issues_date,
-            db_order.due_date=order_data.due_date,
-            db_order.name=order_data.name,
-            db_order.address=order_data.address,
-            db_order.address_2=order_data.address_2,
-            db_order.suburb=order_data.suburb,
-            db_order.state=order_data.state,
-            db_order.receiver_name=order_data.receiver_name,
-            db_order.post_code=order_data.post_code,
+            db_order.order_reference_number=order_data.order_reference_number
+            db_order.issues_date=order_data.issues_date
+            db_order.due_date=order_data.due_date
+            db_order.name=order_data.name
+            db_order.address=order_data.address
+            db_order.address_2=order_data.address_2
+            db_order.suburb=order_data.suburb
+            db_order.state=order_data.state
+            db_order.receiver_name=order_data.receiver_name
+            db_order.post_code=order_data.post_code
             db_order.phone_number=order_data.phone_number
-
             
             await self.db.commit()
             await self.db.refresh(db_order)
